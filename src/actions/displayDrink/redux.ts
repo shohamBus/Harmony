@@ -28,6 +28,8 @@ const INITIAL_STATE = createDraft<Display>({
 		dateModified: '',
 		strGlass: '',
 		strInstructions: '',
+		strDrinkThumb: '',
+		strTags: '',
 	}
 });
 

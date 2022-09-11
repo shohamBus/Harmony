@@ -10,7 +10,6 @@ export type Props = {
 
 const inpSearch: React.FC<Props & LocalizeContextProps> = () => {
 	const [display, setDisplay] = useState('');
-	// const filters = useSelector((state) => state.filters);
 	const dispatch = useDispatch();
 
 	// send to reducer-filter &&  the display

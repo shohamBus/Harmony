@@ -78,7 +78,6 @@ const mainSearch: React.FC<Props & LocalizeContextProps> = (props: Props& Locali
 					variant="outlined"
 					onChange={(e) => {
 						setCurrentSearch(e.target.value);
-					// dispatch(UpdateMainSearch(e.target.value));
 					}}
 					InputProps={{
 						endAdornment: (

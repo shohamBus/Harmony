@@ -2,7 +2,7 @@ import { createDraft, Draft } from 'immer';
 import { createReducerCase } from '@base/features/base-decorator';
 import { createReducer, createActions } from 'reduxsauce';
 import {
-	DrinksState, TypesNames, ActionCreator, ResetFilterArrAction, SetDrinksAction, FilterByIngredientAction, Drink
+	DrinksState, TypesNames, ActionCreator, SetDrinksAction, FilterByIngredientAction, Drink
 } from './interface';
 
 /* ------------- Types and Action Creators ------------- */
@@ -10,12 +10,9 @@ import {
 const { Creators } = createActions<TypesNames, ActionCreator>({
 	getDrinks: ['data'], // handle by saga
 	setDrinks: ['data'],
-	getDeatailsDrink: [], // handle by saga
 	filterByIngredient: ['data'],
-	FilterArr: ['data'],
 	sortBYName: ['data'],
 	sortBYDate: ['data'],
-	resetFilterArr: ['data'],
 });
 
 export const DrinksTypes = TypesNames;
@@ -70,10 +67,6 @@ const sortBYDateReducer = (draft: Draft<DrinksState>) => {
 		(a, b) => Date.parse(b.dateModified) - Date.parse(a.dateModified)
 	);
 };
-const resetFilterArrReducer = (draft: Draft<DrinksState>, action: ResetFilterArrAction) => {
-	const { data } = action;
-	draft.filterArr = data;
-};
 
 /* ------------- Hookup Reducers To Types ------------- */
 
@@ -82,6 +75,5 @@ export const reducer = createReducer(INITIAL_STATE, {
 	[TypesNames.FILTER_BY_INGREDIENT]: createReducerCase(filterByIngredientReducer),
 	[TypesNames.SORT_BY_NAME]: createReducerCase(sortBYNameReducer),
 	[TypesNames.SORT_BY_DATE]: createReducerCase(sortBYDateReducer),
-	[TypesNames.RESET_FILTER_ARR]: createReducerCase(resetFilterArrReducer)
 });
 

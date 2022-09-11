@@ -103,20 +103,20 @@ export const display: React.FC<Props & LocalizeContextProps> = (props: Props& Lo
 						</List>
 					</Paper>
 				</div>
-			</div>
-			<div
-				className="image"
-				onClick={modalHandler}
-				onKeyDown={modalHandler}
-				role="button"
-				tabIndex={0}
-			>
-				<img
-					src={strDrinkThumb}
-					alt={strDrink}
-					width={200}
-					height={300}
-				/>
+				<div
+					className="image"
+					onClick={modalHandler}
+					onKeyDown={modalHandler}
+					role="button"
+					tabIndex={0}
+				>
+					<img
+						src={strDrinkThumb}
+						alt={strDrink}
+						width={200}
+						height={300}
+					/>
+				</div>
 			</div>
 			<Modal imgSrc={strDrinkThumb} open={open} setOpen={setOpen} />
 		</div>
